@@ -1,0 +1,19 @@
+{
+  "name": "enodo-skills-assessment",
+  "version": "1.0.0",
+  "description": "properties google map",
+  "main": "server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikeglopez/enodo-skills-assessment.git"
+  },
+  "author": "Mike G. Lopez <mikeglopez@me.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mikeglopez/enodo-skills-assessment/issues"
+  },
+  "homepage": "https://github.com/mikeglopez/enodo-skills-assessment#readme"
+}
