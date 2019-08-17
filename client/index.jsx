@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unused-state */
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Map from './components/Map.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -27,7 +28,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        Hello World!
+        <Map />
       </div>
     );
   }
