@@ -14,12 +14,14 @@ const Map = compose(
   }),
   withScriptjs,
   withGoogleMap
-)(() => (
+)((props) => (
   <GoogleMap
-    defaultZoom={11}
-    defaultCenter={{ lat: 41.852347, lng: -87.665986 }}
+    defaultZoom={12}
+    defaultCenter={{ lat: 41.899649, lng: -87.669845 }}
   >
-    <Marker position={{ lat: 41.852347, lng: -87.665986 }} />
+    {props.markers.map((home, i) => (
+      <Marker position={{ lat: Number(home.Longitude), lng: Number(home.Latitude) }} key={i} />
+    ))}
   </GoogleMap>
 ));
 
