@@ -1,8 +1,9 @@
 import React from 'react';
 import { compose, withProps } from 'recompose';
 import {
-  withScriptjs, withGoogleMap, GoogleMap, Marker
+  withScriptjs, withGoogleMap, GoogleMap
 } from 'react-google-maps';
+import Markers from './Markers.jsx';
 import token from '../../config.js';
 
 const Map = compose(
@@ -20,7 +21,7 @@ const Map = compose(
     defaultCenter={{ lat: 41.899649, lng: -87.669845 }}
   >
     {props.markers.map((home, i) => (
-      <Marker position={{ lat: Number(home.Longitude), lng: Number(home.Latitude) }} key={i} />
+      <Markers info={home['Full Address']} lat={Number(home.Longitude)} lng={Number(home.Latitude)} key={i} />
     ))}
   </GoogleMap>
 ));
