@@ -21,7 +21,7 @@ const Map = compose(
     defaultCenter={{ lat: 41.899649, lng: -87.669845 }}
   >
     {props.markers.map((home, i) => (
-      <Markers info={home['Full Address']} lat={Number(home.Longitude)} lng={Number(home.Latitude)} key={i} />
+      <Markers info={home['Full Address']} lat={Number(home.Longitude)} lng={Number(home.Latitude)} key={i} index={i} colors={props.colors} />
     ))}
   </GoogleMap>
 ));

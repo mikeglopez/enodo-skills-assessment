@@ -26,12 +26,20 @@ class Markers extends React.Component {
 
   render() {
     const { showInfoWindow } = this.state;
-    const { info, lat, lng } = this.props;
+    const {
+      info, lat, lng, index, colors
+    } = this.props;
     return (
       <Marker
         position={{ lat, lng }}
         onMouseOver={this.handleMouseOver}
         onMouseOut={this.handleMouseExit}
+        icon={{
+          path: google.maps.SymbolPath.CIRCLE,
+          strokeColor: colors[index],
+          strokeWeight: 9,
+          scale: 4
+        }}
       >
         {showInfoWindow && (
           <InfoWindow>
