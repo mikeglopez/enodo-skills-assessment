@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Rainbow from 'rainbowvis.js';
+import Filters from './components/Filters.jsx';
 import Map from './components/Map.jsx';
 
 class App extends React.Component {
@@ -52,6 +53,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <Filters properties={this.state.properties} />
         <Map markers={this.state.properties} colors={this.state.markerColor} />
       </div>
     );
