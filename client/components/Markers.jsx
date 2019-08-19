@@ -37,8 +37,8 @@ class Markers extends React.Component {
         icon={{
           path: google.maps.SymbolPath.CIRCLE,
           strokeColor: colors[index],
-          strokeWeight: 9,
-          scale: 4
+          strokeWeight: 12,
+          scale: 6
         }}
       >
         {showInfoWindow && (
