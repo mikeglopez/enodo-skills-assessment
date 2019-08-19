@@ -1,9 +1,19 @@
 const express = require('express');
+const expressStaticGzip = require('express-static-gzip');
 
 const app = express();
 
 const port = 3000;
 const xlsxToJSON = require('xlsx-to-json');
+
+app.use('/', expressStaticGzip(`${__dirname}/../public`, {
+  index: false,
+  enableBrotli: true,
+  orderPreference: ['br', 'gz'],
+  setHeaders: (res) => {
+    res.setHeader('Cache-Control', 'public, max-age=31536000');
+  }
+}));
 
 app.use(express.static('public'));
 

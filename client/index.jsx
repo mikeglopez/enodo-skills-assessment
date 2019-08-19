@@ -54,13 +54,6 @@ const Top = styled.div`
   padding: 20px;
 `;
 
-const Note = styled.h6`
-  display: block;
-  font-size: 12px;
-  font-weight: 400;
-
-`;
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -126,7 +119,6 @@ class App extends React.Component {
           <Filters properties={this.state.properties} display={this.display} />
         </Top>
         <Map markers={this.state.markers} colors={this.state.markerColor} />
-        <Note>Note: Google Map will show &quot;For development purposes only&quot; Click &quot;OK&quot; to continue.</Note>
       </Wrapper>
     );
   }
