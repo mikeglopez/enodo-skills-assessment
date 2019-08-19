@@ -5,12 +5,16 @@ class Filters extends React.Component {
     super(props);
     this.state = {
       category: '',
+      max: 0,
+      min: 0,
       mode: '',
       value: '',
     };
 
     this.handleCategoryChange = this.handleCategoryChange.bind(this);
     this.handleFilterChange = this.handleFilterChange.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.displayCat = this.displayCat.bind(this);
     this.displayNum = this.displayNum.bind(this);
   }
@@ -35,10 +39,17 @@ class Filters extends React.Component {
   }
 
   displayNum() {
-    console.log('numeric');
     return (
       <div>
-        Woof
+        <label>
+          min:
+          <input name="min" type="number" value={this.state.min} onChange={this.handleInputChange} />
+        </label>
+        <label>
+        max:
+          <input name="max" type="number" value={this.state.max} onChange={this.handleInputChange} />
+        </label>
+        <input type="submit" value="Submit" />
       </div>
     );
   }
@@ -69,6 +80,19 @@ class Filters extends React.Component {
           this.setState({ mode: 'numeric' });
         }
       });
+  }
+
+  handleInputChange(event) {
+    const name = event.target.name;
+
+    this.setState({
+      [name]: event.target.value
+    });
+  }
+
+  handleSubmit(event) {
+    // change the viewed items
+    event.preventDefault();
   }
 
 
