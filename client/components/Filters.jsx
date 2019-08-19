@@ -1,4 +1,34 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const Inline = styled.div`
+  display: inline-block;
+  padding: 20px;
+`;
+
+const Select = styled.select`
+  border-radius: 4px;
+  border: 1px solid #DCDFE6;
+  color: #606266;
+  display: inline-block;
+  height: 40px;
+  outline: none;
+  padding: 0 15px;
+  transition: border-color 0.2s;
+  transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+`;
+
+const Input = styled.input`
+  border-radius: 4px;
+  border: 1px solid #DCDFE6;
+  color: #606266;
+  display: inline-block;
+  height: 40px;
+  outline: none;
+  padding: 0 15px;
+  transition: border-color 0.2s;
+  transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+`;
 
 class Filters extends React.Component {
   constructor(props) {
@@ -30,31 +60,31 @@ class Filters extends React.Component {
     }
 
     return (
-      <div>
-        <select value={this.state.category} onChange={this.handleCategoryChange}>
+      <Inline>
+        <Select value={this.state.category} onChange={this.handleCategoryChange}>
           <option defaultValue>Select a Filter</option>
           {vals.map((val, i) => (
             <option value={val} key={i}>{val}</option>
           ))}
-        </select>
-        <input type="submit" value="Submit" />
-      </div>
+        </Select>
+        <input className="button" type="submit" value="Submit" />
+      </Inline>
     );
   }
 
   displayNum() {
     return (
-      <div>
+      <Inline>
         <label>
           min:
-          <input name="min" type="number" value={this.state.min} onChange={this.handleInputChange} />
+          <Input name="min" type="number" value={this.state.min} onChange={this.handleInputChange} />
         </label>
         <label>
         max:
-          <input name="max" type="number" value={this.state.max} onChange={this.handleInputChange} />
+          <Input name="max" type="number" value={this.state.max} onChange={this.handleInputChange} />
         </label>
-        <input type="submit" value="Submit" />
-      </div>
+        <input className="button" type="submit" value="Submit" />
+      </Inline>
     );
   }
 
@@ -118,12 +148,12 @@ class Filters extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <select value={this.state.value} onChange={this.handleFilterChange}>
+          <Select value={this.state.value} onChange={this.handleFilterChange}>
             <option defaultValue>Select a Category</option>
             {keys.map((key, i) => (
               <option value={key} key={i}>{key}</option>
             ))}
-          </select>
+          </Select>
           {filters}
         </form>
       </div>

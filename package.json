@@ -29,6 +29,7 @@
     "react-dom": "^16.9.0",
     "react-google-maps": "^9.4.5",
     "recompose": "^0.30.0",
+    "styled-components": "^4.3.2",
     "xlsx-to-json": "^0.3.0"
   },
   "devDependencies": {

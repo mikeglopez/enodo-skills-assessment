@@ -1,8 +1,58 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Rainbow from 'rainbowvis.js';
+import styled from 'styled-components';
 import Filters from './components/Filters.jsx';
 import Map from './components/Map.jsx';
+
+const Wrapper = styled.div`
+  color: #303133;
+  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', SimSun, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+  margin: auto;
+  width: 60%;
+
+  a {
+    text-decoration: none;
+  }
+
+  a:link, a:active, a:visited {
+    color: #666666
+  }
+
+  a:hover {
+    color: #333333;
+  }
+
+  .button {
+    background-color: #409EFF;
+    border-radius: 4px;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 10px;
+    outline: none;
+    padding: 12px 20px;
+  }
+
+  .button:active {
+    background-color: #3A8EE6;
+  }
+
+  .button:hover {
+    background-color: #66B1FF;
+  }
+
+  label {
+    margin-left: 10px;
+  }
+`;
+
+const Top = styled.div`
+  padding: 20px;
+`;
 
 class App extends React.Component {
   constructor(props) {
@@ -64,10 +114,12 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <Filters properties={this.state.properties} display={this.display} />
+      <Wrapper>
+        <Top>
+          <Filters properties={this.state.properties} display={this.display} />
+        </Top>
         <Map markers={this.state.markers} colors={this.state.markerColor} />
-      </div>
+      </Wrapper>
     );
   }
 }
