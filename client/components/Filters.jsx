@@ -30,11 +30,15 @@ class Filters extends React.Component {
     }
 
     return (
-      <select value={this.state.category} onChange={this.handleCategoryChange}>
-        {vals.map((val, i) => (
-          <option value={val} key={i}>{val}</option>
-        ))}
-      </select>
+      <div>
+        <select value={this.state.category} onChange={this.handleCategoryChange}>
+          <option defaultValue>Select a Filter</option>
+          {vals.map((val, i) => (
+            <option value={val} key={i}>{val}</option>
+          ))}
+        </select>
+        <input type="submit" value="Submit" />
+      </div>
     );
   }
 
@@ -55,12 +59,7 @@ class Filters extends React.Component {
   }
 
   handleCategoryChange(event) {
-    new Promise((res) => {
-      res(this.setState({ category: event.target.value }));
-    })
-      .then(() => {
-        // change the viewed items
-      });
+    this.setState({ category: event.target.value });
   }
 
   handleFilterChange(event) {
@@ -91,10 +90,16 @@ class Filters extends React.Component {
   }
 
   handleSubmit(event) {
-    // change the viewed items
+    if (this.state.mode === 'categorical') {
+      this.props.display(this.props.properties.filter((property) => property[this.state.value] === this.state.category));
+    }
+
+    if (this.state.mode === 'numeric') {
+      const val = this.state.value;
+      this.props.display(this.props.properties.filter((property) => (Number(property[val].split(',').join('')) < Number(this.state.max.split(',').join(''))) && (Number(property[val].split(',').join('')) > Number(this.state.min.split(',').join('')))));
+    }
     event.preventDefault();
   }
-
 
   render() {
     let keys = [];
@@ -112,8 +117,9 @@ class Filters extends React.Component {
 
     return (
       <div>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <select value={this.state.value} onChange={this.handleFilterChange}>
+            <option defaultValue>Select a Category</option>
             {keys.map((key, i) => (
               <option value={key} key={i}>{key}</option>
             ))}
