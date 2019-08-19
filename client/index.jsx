@@ -37,7 +37,7 @@ class App extends React.Component {
     const gradient = new Rainbow();
     const total = markers.length;
     gradient.setNumberRange(1, total);
-    gradient.setSpectrum('red', 'green');
+    gradient.setSpectrum('#F56C6C', '#67C23A');
     const gradientArr = [];
 
     for (let i = 1; i < total + 1; i += 1) {
