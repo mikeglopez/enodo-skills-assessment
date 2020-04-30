@@ -23,7 +23,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "express-static-gzip": "^2.0.3",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "nodemon": "^1.19.1",
     "rainbowvis.js": "^1.0.1",
     "react": "^16.9.0",
