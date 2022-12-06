@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/mikeglopez/enodo-skills-assessment#readme",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "express-static-gzip": "^2.0.3",
     "jquery": "^3.4.1",
     "nodemon": "^1.19.1",
